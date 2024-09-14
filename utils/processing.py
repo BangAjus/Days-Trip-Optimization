@@ -31,15 +31,25 @@ def inverse_scaling(data):
 def process_to_dict(data):
 
     if data.shape[1] == 2:
-        return {'data':[{'latitude':i, 'longitude':j} \
+        return {"status":{
+                        "code":200,
+                        "message":"Success fetching the API"
+                    },
+                "data":[{'latitude':i, 'longitude':j} \
                         for i, j in zip(data[:, 0],
-                                        data[:, 1])]}
+                                        data[:, 1])]
+                }
 
     elif data.shape[1] == 3:
-        return {'data':[{'latitude':i,
+        return {"status":{
+                        "code":200,
+                        "message":"Success fetching the API"
+                    },
+                "data":[{'latitude':i,
                          'longitude':j,
                          'label':k} \
                         for i, j, k in \
                             zip(data[:, 0],
                                 data[:, 1],
-                                data[:, 2])]}
+                                data[:, 2])]
+                }

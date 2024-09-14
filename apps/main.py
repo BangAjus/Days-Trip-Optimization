@@ -10,7 +10,11 @@ app = Sanic('ML_API')
 async def index(request):
 
     if not request:
-        return json({"error": "No JSON data provided"},
+        return json({"status":
+                        { "code": 400,
+                          "message":"Couldn't fetch the API"
+                               }
+                    },
                     status=400)
     data = request.json
     features = process_data_after_json(data)
